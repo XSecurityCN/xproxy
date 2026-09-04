@@ -1,0 +1,8 @@
+{
+  "id": "debug-http-observer",
+  "name": "Debug HTTP Observer",
+  "version": "1.0.0",
+  "author": "TheKingOfDuck",
+  "description": "High-verbosity debug plugin for proxy traffic inspection.",
+  "entry": "xapp.py"
+}

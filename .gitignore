@@ -1,0 +1,17 @@
+.gradle
+build
+.idea/
+xproxy*.zip
+data/
+data/*
+data
+bin/
+bin/*
+bin
+temp
+*.log
+**.log
+bin/
+xapp-store/
+# macOS Finder 元数据
+.DS_Store

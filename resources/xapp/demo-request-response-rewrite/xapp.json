@@ -1,0 +1,8 @@
+{
+  "id": "request-response-rewrite",
+  "name": "Request Response Rewrite",
+  "version": "1.0.0",
+  "author": "TheKingOfDuck",
+  "description": "Demonstrates on_before_request and on_after_request rewriting.",
+  "entry": "xapp.py"
+}

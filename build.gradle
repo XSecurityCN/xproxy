@@ -1,0 +1,120 @@
+apply plugin: 'java'
+
+apply plugin: 'kotlin'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.10"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        kotlin {
+            srcDir 'src'
+            exclude 'test/**'
+        }
+        java {
+            srcDir 'src'
+            exclude 'test/**'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+    test {
+        kotlin {
+            srcDir 'src/test/kotlin'
+        }
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.1.10"
+
+
+    implementation 'org.python:jython-standalone:2.7.0' // use this for extension jar
+
+    implementation 'com.fifesoft:rsyntaxtextarea:3.1.1'
+    implementation 'com.fifesoft:rstaui:3.1.1'
+    implementation 'com.formdev:flatlaf:3.7'
+    implementation 'io.netty:netty-all:4.1.114.Final'
+    implementation 'io.netty:netty-tcnative-boringssl-static:2.0.66.Final'
+    implementation 'com.github.monkeywie:proxyee:1.7.6'
+    implementation 'org.brotli:dec:0.1.2'
+    implementation 'com.github.luben:zstd-jni:1.5.7-3'
+    implementation 'org.xerial:sqlite-jdbc:3.46.1.3'
+    implementation 'com.twitter:hpack:1.0.2'
+    implementation 'com.jayway.jsonpath:json-path:2.9.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.21.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
+    implementation 'org.apache.commons:commons-text:1.14.0'
+    implementation 'commons-io:commons-io:2.20.0'
+    implementation 'com.auth0:java-jwt:4.5.0'
+    implementation 'org.javatuples:javatuples:1.2'
+    // implementation files('http2-spike-enhanced-obfuscated.jar') // used for research only
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit5:2.1.10"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task copyRuntimeLibs(type: Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/libs/lib"
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'org.jjgroup.xproxy.XProxyKt',
+            'Class-Path': configurations.runtimeClasspath.files.collect { "lib/${it.name}" }.join(' ')
+        )
+    }
+}
+
+jar.dependsOn(copyRuntimeLibs)
+
+task fatJar(type: Jar) {
+    archiveFileName = 'xproxy.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes('Main-Class': 'org.jjgroup.xproxy.XProxyKt')
+    }
+    from sourceSets.main.output
+    from({ configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }) {
+        exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/INDEX.LIST'
+    }
+}

@@ -1,0 +1,228 @@
+name: Release Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  APP_NAME: XProxy
+  MAIN_CLASS: org.jjgroup.xproxy.XProxyKt
+
+jobs:
+  prepare-release:
+    name: Prepare GitHub Release
+    runs-on: ubuntu-latest
+    if: ${{ github.ref_type == 'tag' }}
+
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+
+  build-windows-msi:
+    name: Build Windows MSI
+    needs: prepare-release
+    if: ${{ always() && (github.ref_type != 'tag' || needs.prepare-release.result == 'success') }}
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build fatJar
+        shell: bash
+        run: ./gradlew fatJar
+
+      - name: Package MSI
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG_NAME="${GITHUB_REF_NAME:-v0.0.0}"
+          RAW_VERSION="${TAG_NAME#v}"
+
+          # Windows MSI ProductVersion must be numeric and major in [0,255].
+          # Accept tags like v3.4.5 / v3.4.5-beta.1 / v3 and normalize to x.y.z.
+          APP_VERSION=$(python3 - <<'PY'
+          import os, re
+          raw = os.environ.get("RAW_VERSION", "0.0.0")
+          m = re.search(r"(\d+)(?:\.(\d+))?(?:\.(\d+))?", raw)
+          if not m:
+              major, minor, patch = 0, 0, 0
+          else:
+              major = int(m.group(1) or 0)
+              minor = int(m.group(2) or 0)
+              patch = int(m.group(3) or 0)
+          major = min(max(major, 0), 255)
+          minor = min(max(minor, 0), 65535)
+          patch = min(max(patch, 0), 65535)
+          print(f"{major}.{minor}.{patch}")
+          PY
+          )
+          echo "Using MSI app version: ${APP_VERSION} (from tag ${TAG_NAME})"
+
+          PACKAGE_DIR="build/package"
+          INPUT_DIR="${PACKAGE_DIR}/input"
+          MSI_DIR="${PACKAGE_DIR}/msi"
+          JAR_PATH="build/libs/xproxy.jar"
+
+          rm -rf "${INPUT_DIR}" "${MSI_DIR}"
+          mkdir -p "${INPUT_DIR}" "${MSI_DIR}"
+          cp "${JAR_PATH}" "${INPUT_DIR}/"
+
+          jpackage \
+            --type msi \
+            --name "${APP_NAME}" \
+            --app-version "${APP_VERSION}" \
+            --input "${INPUT_DIR}" \
+            --main-jar "xproxy.jar" \
+            --main-class "${MAIN_CLASS}" \
+            --dest "${MSI_DIR}" \
+            --about-url "https://github.com/XSecurityCN/xproxy" \
+            --win-dir-chooser \
+            --win-menu \
+            --win-shortcut
+
+          shopt -s nullglob
+          msi_files=("${MSI_DIR}"/*.msi)
+          if [[ ${#msi_files[@]} -eq 0 ]]; then
+            echo "No MSI file generated"
+            exit 1
+          fi
+
+          target_msi="${MSI_DIR}/${APP_NAME}_${TAG_NAME}_windows_amd64.msi"
+          mv -f "${msi_files[0]}" "${target_msi}"
+          echo "MSI_PATH=${target_msi}" >> "$GITHUB_ENV"
+
+      - name: Upload MSI artifact
+        if: ${{ github.ref_type != 'tag' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-msi-${{ github.ref_name }}
+          path: ${{ env.MSI_PATH }}
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Upload MSI to GitHub Release
+        if: ${{ github.ref_type == 'tag' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: ${{ env.MSI_PATH }}
+
+  build-macos-dmg:
+    name: Build macOS DMG (${{ matrix.arch }})
+    needs: prepare-release
+    if: ${{ always() && (github.ref_type != 'tag' || needs.prepare-release.result == 'success') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15-intel
+            arch: amd64
+          - runner: macos-15
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build fatJar
+        shell: bash
+        run: ./gradlew fatJar
+
+      - name: Package DMG
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG_NAME="${GITHUB_REF_NAME:-v0.0.0}"
+
+          ICON_PATH="resources/ninja.icns"
+          PACKAGE_DIR="build/package"
+          INPUT_DIR="${PACKAGE_DIR}/input"
+          APP_IMAGE_DIR="${PACKAGE_DIR}/app-image"
+          DMG_DIR="${PACKAGE_DIR}/dmg"
+          JAR_PATH="build/libs/xproxy.jar"
+
+          rm -rf "${INPUT_DIR}" "${APP_IMAGE_DIR}" "${DMG_DIR}"
+          mkdir -p "${INPUT_DIR}" "${APP_IMAGE_DIR}" "${DMG_DIR}"
+          cp "${JAR_PATH}" "${INPUT_DIR}/"
+
+          jpackage \
+            --type app-image \
+            --name "${APP_NAME}" \
+            --input "${INPUT_DIR}" \
+            --main-jar "xproxy.jar" \
+            --main-class "${MAIN_CLASS}" \
+            --icon "${ICON_PATH}" \
+            --dest "${APP_IMAGE_DIR}"
+
+          jpackage \
+            --type dmg \
+            --name "${APP_NAME}" \
+            --app-image "${APP_IMAGE_DIR}/${APP_NAME}.app" \
+            --icon "${ICON_PATH}" \
+            --dest "${DMG_DIR}" \
+            --about-url "https://github.com/XSecurityCN/xproxy"
+
+          shopt -s nullglob
+          dmg_files=("${DMG_DIR}"/*.dmg)
+          if [[ ${#dmg_files[@]} -eq 0 ]]; then
+            echo "No DMG file generated"
+            exit 1
+          fi
+
+          target_dmg="${DMG_DIR}/${APP_NAME}_${TAG_NAME}_darwin_${{ matrix.arch }}.dmg"
+          mv -f "${dmg_files[0]}" "${target_dmg}"
+          echo "DMG_PATH=${target_dmg}" >> "$GITHUB_ENV"
+
+      - name: Upload DMG artifact
+        if: ${{ github.ref_type != 'tag' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-dmg-${{ matrix.arch }}-${{ github.ref_name }}
+          path: ${{ env.DMG_PATH }}
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Upload DMG to GitHub Release
+        if: ${{ github.ref_type == 'tag' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: ${{ env.DMG_PATH }}
+
+  publish-release:
+    name: Publish GitHub Release
+    needs:
+      - build-windows-msi
+      - build-macos-dmg
+    runs-on: ubuntu-latest
+    if: ${{ github.ref_type == 'tag' }}
+
+    steps:
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false

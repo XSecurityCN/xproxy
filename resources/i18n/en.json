@@ -1,0 +1,440 @@
+{
+  "common": {
+    "save": "Save",
+    "delete": "Delete",
+    "new": "New",
+    "load": "Load",
+    "exit": "Exit",
+    "change": "Change",
+    "reload": "Reload",
+    "open_folder": "Open Folder",
+    "refresh": "Refresh",
+    "search": "Search:",
+    "cancel": "Cancel",
+    "close": "Close",
+    "apply": "Apply",
+    "add": "Add",
+    "edit": "Edit",
+    "remove": "Remove",
+    "up": "Up",
+    "down": "Down",
+    "ok": "OK",
+    "test": "Test",
+    "reset": "Reset",
+    "clear": "Clear",
+    "host": "Host",
+    "port": "Port",
+    "protocol": "Protocol",
+    "target": "Target"
+  },
+  "menu": {
+    "send_to_fuzzer": "Send to Fuzzer",
+    "use_codec": "Use Codec",
+    "xapp": "Xapp",
+    "copy": "Copy",
+    "copy_url": "Copy URL",
+    "select_all": "Select All",
+    "change_request_method": "Change request method",
+    "change_body_encoding": "Change body encoding",
+    "paste_host_url_as_request": "Paste host/url as request",
+    "intercept_this_response": "Intercept this Response",
+    "send_to_default_codec": "Send to default Codec",
+    "send_to_ws_repeater": "Send to WebSocket Repeater",
+    "delete_item": "Delete item",
+    "delete_all": "Delete all",
+    "delete_selected": "Delete selected",
+    "highlight": "Highlight",
+    "clear_highlight": "Clear highlight"
+  },
+  "highlight": {
+    "color": {
+      "none": "None",
+      "red": "Red",
+      "orange": "Orange",
+      "yellow": "Yellow",
+      "green": "Green",
+      "cyan": "Cyan",
+      "blue": "Blue",
+      "pink": "Pink",
+      "gray": "Gray"
+    }
+  },
+  "http": {
+    "request": "Request",
+    "response": "Response",
+    "original_request": "Original request",
+    "modified_request": "Modified request",
+    "original_response": "Original response",
+    "modified_response": "Modified response",
+    "pretty": "Pretty",
+    "raw": "Raw",
+    "render": "Render",
+    "render_unsupported": "Render supports only HTML and Image resources."
+  },
+  "search": {
+    "current_pane": "Search current pane",
+    "highlights": "{count} highlights",
+    "highlights_position": "{current}/{total} highlights",
+    "text": "Text",
+    "regex": "Regex",
+    "match_case": "Match case"
+  },
+  "tabs": {
+    "target": "Target",
+    "proxy": "Proxy",
+    "fuzzer": "Fuzzer",
+    "codec": "Codec",
+    "kits": "Kits",
+    "settings": "Settings",
+    "rename": "Rename",
+    "rename_hint": "Press Enter to save, Esc to cancel",
+    "duplicate": "Duplicate",
+    "close_others": "Close Others",
+    "new_group": "New Group",
+    "add_to_group": "Add to Group",
+    "remove_from_group": "Remove from Group",
+    "group_name": "Group name:",
+    "no_groups": "No groups",
+    "collapse_group": "Collapse Group",
+    "expand_group": "Expand Group",
+    "group_toggle_hint": "Click group name to collapse/expand",
+    "choose_color": "Choose Color",
+    "group_color": "Group color:",
+    "edit_group": "Edit Group"
+  },
+  "kits": {
+    "xapp": "xapp",
+    "xintruder": "xintruder",
+    "xserver": "xserver",
+    "xapp_store": "xapp store",
+    "api_docs": "api docs",
+    "new_script": "New Script",
+    "install_selected": "Install Selected"
+  },
+  "project": {
+    "management": { "title": "Project Management" },
+    "root": "Projects root: {path}",
+    "path": "Project path",
+    "select_root": "Select Projects Root",
+    "confirm_root_title": "Confirm Projects Root",
+    "confirm_root_message": "Set projects root to:\n{path}",
+    "base_name": "Project base name",
+    "new_project": "New Project",
+    "delete_title": "Delete Project",
+    "delete_one_confirm": "Delete project '{name}' and all project files?",
+    "delete_many_confirm": "Delete {count} selected projects and all project files?",
+    "loading": {
+      "title": "Loading Project",
+      "data": "Loading project data...",
+      "initializing_storage": "Initializing project storage...",
+      "proxy_history": "Loading proxy history...",
+      "ws_history": "Loading WebSocket history...",
+      "fuzzer_tabs": "Loading Fuzzer tabs...",
+      "tab_history": "Loading tab history {current}/{total}...",
+      "finalizing": "Finalizing...",
+      "complete": "Load complete",
+      "failed_title": "Load failed",
+      "failed_message": "Project loading failed: {error}"
+    },
+    "column": {
+      "name": "Project Name",
+      "date": "Date",
+      "path": "Project Path"
+    }
+  },
+  "proxy": {
+    "forward_all": "Forward All",
+    "drop_all": "Drop All",
+    "delete_all_history_confirm": "Delete all HTTP history items?",
+    "delete_all_ws_history_confirm": "Delete all WebSocket history items?",
+    "action": {
+      "forward": "➜  Forward",
+      "drop": "Drop",
+      "start": "Start",
+      "stop": "Stop"
+    },
+    "intercept": {
+      "on": "Intercept on",
+      "off": "Intercept off"
+    },
+    "tab": {
+      "intercept": "Intercept",
+      "http_history": "HTTP history",
+      "ws_history": "WS history",
+      "options": "Proxy option"
+    },
+    "empty": {
+      "select_http_history": "Select one history item to view request/response",
+      "select_ws_history": "Select one WS history item to view payload"
+    },
+    "listener": {
+      "title": "Proxy listener",
+      "description": "Configure bind host/port and start or stop the proxy listener.",
+      "bind": "Bind",
+      "port": "Port"
+    },
+    "status": {
+      "stopped": "Proxy stopped",
+      "listening": "Listening on {host}:{port}",
+      "listening_via_upstream": "Listening on {host}:{port} via upstream {upstreamHost}:{upstreamPort}",
+      "listening_upstream_ignored": "Listening on {host}:{port} (upstream ignored: invalid/looped)",
+      "starting": "Starting...",
+      "stopping": "Stopping...",
+      "invalid_port": "Invalid port",
+      "start_failed_prefix": "Failed to start proxy:",
+      "start_failed": "Failed to start proxy: {error}"
+    },
+    "match_replace": {
+      "title": "HTTP match and replace rules",
+      "description": "Automatically replace parts of HTTP requests and responses passing through Proxy.",
+      "add_title": "Add match/replace rule",
+      "edit_title": "Edit match/replace rule",
+      "debug_test": "Debug test",
+      "original": "Original",
+      "auto_modified": "Auto-modified",
+      "debug_first_line_zero": "Matched 0, replacements 0 (Request First Line only checks line 1)",
+      "debug_result": "Matched {matched}, replacements {replacements}"
+    },
+    "intercept_rule": {
+      "title": "Intercept rules",
+      "description": "Automatically forward or drop intercepted traffic based on keyword or regex rules.",
+      "add_title": "Add intercept rule",
+      "edit_title": "Edit intercept rule"
+    },
+    "rule": {
+      "default_name": "Rule",
+      "invalid_title": "Invalid rule",
+      "name_required": "Name is required",
+      "match_required": "Match is required",
+      "match_required_add_regex": "Match is required for Add + Regex mode",
+      "scope_required": "At least one scope is required",
+      "invalid_regex": "Invalid regex: {error}"
+    },
+    "scope": {
+      "request_header": "Request header",
+      "request_body": "Request body",
+      "response_header": "Response header",
+      "response_body": "Response body"
+    },
+    "column": {
+      "id": "#",
+      "enabled": "Enabled",
+      "item": "Item",
+      "name": "Name",
+      "state": "State",
+      "method": "Method",
+      "host": "Host",
+      "path": "Path",
+      "status": "Status",
+      "length": "Length",
+      "mime_type": "MIME type",
+      "mime": "MIME",
+      "title": "Title",
+      "tls": "TLS",
+      "protocol": "Protocol",
+      "modified": "Modified",
+      "time": "Time",
+      "tool": "Tool",
+      "direction": "Direction",
+      "action": "Action",
+      "match": "Match",
+      "replace": "Replace",
+      "scope": "Scope",
+      "mode": "Mode",
+      "type": "Type",
+      "preview": "Preview"
+    }
+  },
+  "target": {
+    "site_map": "Site map",
+    "contents": "Contents",
+    "issues": "Issues",
+    "no_issues": "No issues",
+    "delete_all_contents_confirm": "Delete all contents entries?"
+  },
+  "codec": {
+    "empty": "No codec tabs. Click + to add.",
+    "operations": "Operations",
+    "operations_hint": "By category (all expanded); double-click to add",
+    "recipe": "Recipe",
+    "recipe_hint": "Drag operations here; drag to reorder",
+    "input_output": "Input / Output",
+    "ready": "Ready",
+    "configure_node": "Configure node",
+    "remove_node": "Remove node",
+    "remove_all_nodes": "Remove all nodes",
+    "configure_title": "Configure {operation} ({hint})",
+    "applied_operations": "Applied {count} operation(s)"
+  },
+  "request_table": {
+    "http_history": "HTTP history",
+    "history_filter": "HTTP history filter",
+    "search_history": "Search HTTP history",
+    "column": {
+      "row": "Row",
+      "payload_n": "Payload {index}",
+      "status": "Status",
+      "anomaly_rank": "Anomaly rank",
+      "words": "Words",
+      "length": "Length",
+      "time": "Time",
+      "label": "Label"
+    }
+  },
+  "mime_filter": {
+    "settings": "Filter settings",
+    "title": "HTTP history filter",
+    "by_mime_type": "Filter by MIME type",
+    "by_status_code": "Filter by status code",
+    "by_keyword": "Filter by keyword",
+    "keyword": "Keyword",
+    "condition": "Condition",
+    "show_all": "Show all",
+    "hide_all": "Hide all",
+    "restore_default": "Restore default",
+    "apply_and_close": "Apply & close",
+    "summary_hiding_all": "Filter settings: hiding all content ({logic})",
+    "summary_showing": "Filter settings: showing {types} ({logic})"
+  },
+  "fuzzer": {
+    "options": "Options",
+    "follow_redirect": "Follow redirect",
+    "send": "Send",
+    "intruder": "Intruder",
+    "update_content_length": "Update Content-Length",
+    "sync_host": "Sync Host",
+    "edit_target": "Edit Target",
+    "sending": "Sending",
+    "done": "Done",
+    "send_error": "Error sending request: {error}",
+    "pause": "Pause",
+    "continue": "Continue",
+    "attack": "Attack",
+    "close_results_confirm": "Close intruder results window?",
+    "confirm_close": "Confirm Close",
+    "placeholder": "Placeholder",
+    "attack_script": "Attack Script: ",
+    "no_request_tabs": "No request tabs. Click + to add.",
+    "open_script_dir": "Open script dir",
+    "last_code_used": "Last code used",
+    "last_attack_script": "Last attack script",
+    "empty_scripts": "(empty)",
+    "no_scripts": "(no scripts)",
+    "results_title": "intruder - {host}",
+    "unknown_host": "unknown-host",
+    "mcp_attack_tab": "MCP attack",
+    "status_line": "Reqs: {reqs} | Queued: {queued} | Duration: {duration}s | RPS: {rps} | Connections: {connections} | Retries: {retries} | Fails: {fails} | Next: {next}",
+    "status_cancelled": "Cancelled",
+    "status_completed": "Completed",
+    "status_warming_up": "Engine warming up...",
+    "status_paused": "Paused",
+    "status_python_error": "User Python error, check extender for full details: {message}"
+  },
+  "wsrepeater": {
+    "target": "Target:",
+    "opcode": "Type:",
+    "send": "Send",
+    "reconnect": "Reconnect",
+    "disconnect": "Disconnect",
+    "handshake_request": "Handshake Request (editable; Sec-WebSocket-Key is regenerated on connect)",
+    "handshake_response": "Handshake Response",
+    "inbound_detail": "Frame Detail",
+    "tab": {
+      "payload": "Payload",
+      "handshake": "Handshake"
+    },
+    "status": {
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "error": {
+      "title": "WebSocket Repeater",
+      "invalid_hex": "Binary payload must be valid hexadecimal.",
+      "no_session": "No WebSocket session context for this frame (it cannot be replayed).",
+      "live_dead": "Original connection closed. Click Reconnect to establish a new one."
+    },
+    "column": {
+      "index": "#",
+      "direction": "Direction",
+      "opcode": "Type",
+      "length": "Length",
+      "preview": "Preview"
+    }
+  },
+  "settings": {
+    "about": {
+      "title": "About",
+      "intro": "XProxy is a fully open-source web security testing toolbox, built to contribute to the open-source and security community !",
+      "maintained_by": "Designer",
+      "contributors": "Contributors"
+    },
+    "tls": {
+      "title": "TLS Certificate",
+      "description": "Export MITM CA certificate, then install and trust it in your OS/browser",
+      "export_ca": "Export CA Certificate",
+      "default_export": "Default export: ~/.xproxy/xproxy_ca.crt",
+      "status_not_exported": "Status: Not Exported",
+      "detail_not_exported": "CA certificate file not found. Click 'Export CA Certificate' to generate/export it.",
+      "status_trusted": "Status: Trusted",
+      "detail_trusted": "Certificate exists and is trusted by macOS system trust store.",
+      "status_exported_not_trusted": "Status: Exported, Not Trusted",
+      "detail_exported_not_trusted": "Certificate exists but is not trusted yet. Import and trust it in Keychain Access.",
+      "exported_to": "Certificate exported to:\n{path}",
+      "export_success": "Export Success"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "theme": "Theme",
+      "apply_failed": "Failed to apply theme: {theme}",
+      "apply_failed_title": "Theme Apply Failed",
+      "help": "Select FlatLaf themes; changes apply immediately"
+    },
+    "language": {
+      "title": "Language",
+      "current": "Language",
+      "reload_translations": "Reload translations",
+      "directory": "Translation files: {path}",
+      "reloaded": "Translations reloaded",
+      "reload_failed": "Failed to reload translations: {error}"
+    },
+    "encoding": {
+      "title": "Encoding",
+      "display_charset": "Display charset",
+      "forward_charset": "Forward charset",
+      "help": "Auto: headers/meta/BOM detection, then UTF-8/GB18030 fallback"
+    },
+    "upstream": {
+      "title": "Upstream Proxy",
+      "enable": "Enable upstream proxy",
+      "username": "Username",
+      "password": "Password",
+      "help": "After enabling, Proxy and Fuzzer traffic goes through this upstream proxy (HTTP/SOCKS5, optional Basic auth)"
+    },
+    "response_pretty": {
+      "title": "Http Pretty",
+      "display_limits": "Display limit",
+      "display_limits_hint": "One KB value applied to Raw body preview, large preview, and HTML render limits",
+      "processing_limits": "Processing limit",
+      "processing_limits_hint": "One KB value applied to auto pretty, auto highlight, and body-highlight limits",
+      "smooth_limits": "Smooth browsing body limit",
+      "smooth_limits_hint": "One KB value controlling when Raw uses smooth browsing mode; line/line-count safeguards stay automatic",
+      "mime_whitelist": "MIME whitelist",
+      "help": "All numeric limits use KB. Not in whitelist => no auto-pretty (higher priority than size).",
+      "default_help": "Default: json/html/xml related MIME types"
+    },
+    "mcp": {
+      "title": "MCP Server",
+      "enable": "Enable MCP server (for AI agents)",
+      "bind_host": "Listen address",
+      "token": "Auth token",
+      "regenerate": "Rotate Token",
+      "regenerate_confirm": "Rotate the auth token? The current token becomes invalid immediately — any connected agent must be updated with the new token.",
+      "copy": "Copy",
+      "config_copied": "Config command copied to clipboard.",
+      "state_running": "Running",
+      "state_stopped": "Stopped",
+      "tools": "tools",
+      "help": "Starts with xproxy. AI agents connect via Streamable HTTP to this endpoint with header: Authorization: Bearer <token>. Bound to loopback by default; auth is mandatory and always on. Toggle the enable switch to apply listen-address (host:port) changes."
+    }
+  }
+}

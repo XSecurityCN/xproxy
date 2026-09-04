@@ -1,0 +1,440 @@
+{
+  "common": {
+    "save": "保存",
+    "delete": "删除",
+    "new": "新建",
+    "load": "加载",
+    "exit": "退出",
+    "change": "更改",
+    "reload": "重新加载",
+    "open_folder": "打开文件夹",
+    "refresh": "刷新",
+    "search": "搜索：",
+    "cancel": "取消",
+    "close": "关闭",
+    "apply": "应用",
+    "add": "添加",
+    "edit": "编辑",
+    "remove": "移除",
+    "up": "上移",
+    "down": "下移",
+    "ok": "确定",
+    "test": "测试",
+    "reset": "重置",
+    "clear": "清除",
+    "host": "主机",
+    "port": "端口",
+    "protocol": "协议",
+    "target": "目标"
+  },
+  "menu": {
+    "send_to_fuzzer": "发送到 重放器",
+    "use_codec": "使用 编解码器",
+    "xapp": "Xapp",
+    "copy": "复制",
+    "copy_url": "复制 URL",
+    "select_all": "全选",
+    "change_request_method": "修改请求方法",
+    "change_body_encoding": "修改请求体编码",
+    "paste_host_url_as_request": "将 host/url 粘贴为请求",
+    "intercept_this_response": "拦截此响应",
+    "send_to_default_codec": "发送到 主编码器",
+    "send_to_ws_repeater": "发送到 WebSocket 重放器",
+    "delete_item": "删除项目",
+    "delete_all": "全部删除",
+    "delete_selected": "删除选中项",
+    "highlight": "高亮",
+    "clear_highlight": "清除高亮"
+  },
+  "highlight": {
+    "color": {
+      "none": "无",
+      "red": "红色",
+      "orange": "橙色",
+      "yellow": "黄色",
+      "green": "绿色",
+      "cyan": "青色",
+      "blue": "蓝色",
+      "pink": "粉色",
+      "gray": "灰色"
+    }
+  },
+  "http": {
+    "request": "请求",
+    "response": "响应",
+    "original_request": "原始请求",
+    "modified_request": "修改请求",
+    "original_response": "原始响应",
+    "modified_response": "修改响应",
+    "pretty": "格式化",
+    "raw": "原始",
+    "render": "渲染",
+    "render_unsupported": "渲染仅支持 HTML 和图片资源。"
+  },
+  "search": {
+    "current_pane": "搜索当前面板",
+    "highlights": "{count} 个高亮",
+    "highlights_position": "{current}/{total} 个高亮",
+    "text": "文本",
+    "regex": "正则",
+    "match_case": "区分大小写"
+  },
+  "tabs": {
+    "target": "目标",
+    "proxy": "代理",
+    "fuzzer": "重放",
+    "codec": "编码",
+    "kits": "工具",
+    "settings": "设置",
+    "rename": "重命名",
+    "rename_hint": "按 Enter 保存，按 Esc 取消",
+    "duplicate": "复制",
+    "close_others": "关闭其他",
+    "new_group": "新建分组",
+    "add_to_group": "添加到分组",
+    "remove_from_group": "移出分组",
+    "group_name": "分组名称：",
+    "no_groups": "暂无分组",
+    "collapse_group": "折叠分组",
+    "expand_group": "展开分组",
+    "group_toggle_hint": "点击分组名折叠/展开",
+    "choose_color": "选择颜色",
+    "group_color": "分组颜色：",
+    "edit_group": "编辑分组"
+  },
+  "kits": {
+    "xapp": "插件",
+    "xintruder": "攻击脚本",
+    "xserver": "服务端配置",
+    "xapp_store": "插件商店",
+    "api_docs": "API 文档",
+    "new_script": "新建脚本",
+    "install_selected": "安装选中项"
+  },
+  "project": {
+    "management": { "title": "项目管理" },
+    "root": "项目根目录：{path}",
+    "path": "项目路径",
+    "select_root": "选择项目根目录",
+    "confirm_root_title": "确认项目根目录",
+    "confirm_root_message": "将项目根目录设置为：\n{path}",
+    "base_name": "项目基础名称",
+    "new_project": "新建项目",
+    "delete_title": "删除项目",
+    "delete_one_confirm": "删除项目 '{name}' 以及所有项目文件？",
+    "delete_many_confirm": "删除选中的 {count} 个项目以及所有项目文件？",
+    "loading": {
+      "title": "正在加载项目",
+      "data": "正在加载项目数据...",
+      "initializing_storage": "正在初始化项目存储...",
+      "proxy_history": "正在加载代理历史...",
+      "ws_history": "正在加载 WebSocket 历史...",
+      "fuzzer_tabs": "正在加载 重放器 标签页...",
+      "tab_history": "正在加载标签历史 {current}/{total}...",
+      "finalizing": "正在完成...",
+      "complete": "加载完成",
+      "failed_title": "加载失败",
+      "failed_message": "项目加载失败：{error}"
+    },
+    "column": {
+      "name": "项目名称",
+      "date": "日期",
+      "path": "项目路径"
+    }
+  },
+  "proxy": {
+    "forward_all": "全部放行",
+    "drop_all": "全部丢弃",
+    "delete_all_history_confirm": "删除全部 HTTP 历史记录？",
+    "delete_all_ws_history_confirm": "删除全部 WebSocket 历史记录？",
+    "action": {
+      "forward": "➜  放行",
+      "drop": "丢弃",
+      "start": "启动",
+      "stop": "停止"
+    },
+    "intercept": {
+      "on": "拦截开启",
+      "off": "拦截关闭"
+    },
+    "tab": {
+      "intercept": "拦截",
+      "http_history": "HTTP 历史",
+      "ws_history": "WS 历史",
+      "options": "代理配置"
+    },
+    "empty": {
+      "select_http_history": "选择一条历史记录以查看请求/响应",
+      "select_ws_history": "选择一条 WS 历史记录以查看载荷"
+    },
+    "listener": {
+      "title": "代理端口",
+      "description": "配置绑定主机/端口，并启动或停止 代理端口。",
+      "bind": "绑定",
+      "port": "端口"
+    },
+    "status": {
+      "stopped": "代理 已停止",
+      "listening": "正在监听 {host}:{port}",
+      "listening_via_upstream": "正在监听 {host}:{port}，上游代理 {upstreamHost}:{upstreamPort}",
+      "listening_upstream_ignored": "正在监听 {host}:{port}（已忽略无效/循环上游代理）",
+      "starting": "正在启动...",
+      "stopping": "正在停止...",
+      "invalid_port": "端口无效",
+      "start_failed_prefix": "启动 代理 失败：",
+      "start_failed": "启动 代理 失败：{error}"
+    },
+    "match_replace": {
+      "title": "HTTP 匹配和替换规则",
+      "description": "自动替换经过 代理 的 HTTP 请求和响应内容。",
+      "add_title": "添加匹配/替换规则",
+      "edit_title": "编辑匹配/替换规则",
+      "debug_test": "调试测试",
+      "original": "原始内容",
+      "auto_modified": "自动修改后",
+      "debug_first_line_zero": "匹配 0，替换 0（请求首行仅检查第 1 行）",
+      "debug_result": "匹配 {matched}，替换 {replacements}"
+    },
+    "intercept_rule": {
+      "title": "拦截规则",
+      "description": "基于关键字或正则规则自动放行或丢弃被拦截的流量。",
+      "add_title": "添加拦截规则",
+      "edit_title": "编辑拦截规则"
+    },
+    "rule": {
+      "default_name": "规则",
+      "invalid_title": "规则无效",
+      "name_required": "名称不能为空",
+      "match_required": "匹配内容不能为空",
+      "match_required_add_regex": "添加 + 正则模式需要填写匹配内容",
+      "scope_required": "至少需要选择一个范围",
+      "invalid_regex": "正则无效：{error}"
+    },
+    "scope": {
+      "request_header": "请求头",
+      "request_body": "请求体",
+      "response_header": "响应头",
+      "response_body": "响应体"
+    },
+    "column": {
+      "id": "#",
+      "enabled": "启用",
+      "item": "项目",
+      "name": "名称",
+      "state": "状态",
+      "method": "方法",
+      "host": "主机",
+      "path": "路径",
+      "status": "状态码",
+      "length": "长度",
+      "mime_type": "MIME 类型",
+      "mime": "MIME",
+      "title": "标题",
+      "tls": "TLS",
+      "protocol": "协议",
+      "modified": "已修改",
+      "time": "时间",
+      "tool": "来源",
+      "direction": "方向",
+      "action": "动作",
+      "match": "匹配",
+      "replace": "替换",
+      "scope": "范围",
+      "mode": "模式",
+      "type": "类型",
+      "preview": "预览"
+    }
+  },
+  "target": {
+    "site_map": "站点地图",
+    "contents": "内容",
+    "issues": "问题",
+    "no_issues": "无问题",
+    "delete_all_contents_confirm": "删除全部内容条目？"
+  },
+  "codec": {
+    "empty": "没有 Codec 标签页。点击 + 添加。",
+    "operations": "操作",
+    "operations_hint": "按分类展示（全部展开）；双击添加",
+    "recipe": "处理流程",
+    "recipe_hint": "将操作拖到这里；拖动可重排",
+    "input_output": "输入 / 输出",
+    "ready": "就绪",
+    "configure_node": "配置节点",
+    "remove_node": "移除节点",
+    "remove_all_nodes": "移除全部节点",
+    "configure_title": "配置 {operation}（{hint}）",
+    "applied_operations": "已应用 {count} 个操作"
+  },
+  "request_table": {
+    "http_history": "HTTP 历史",
+    "history_filter": "HTTP 历史过滤",
+    "search_history": "搜索 HTTP 历史",
+    "column": {
+      "row": "#",
+      "payload_n": "载荷 {index}",
+      "status": "状态码",
+      "anomaly_rank": "异常评分",
+      "words": "单词数",
+      "length": "长度",
+      "time": "耗时",
+      "label": "标签"
+    }
+  },
+  "mime_filter": {
+    "settings": "过滤设置",
+    "title": "HTTP 历史过滤",
+    "by_mime_type": "按 MIME 类型过滤",
+    "by_status_code": "按状态码过滤",
+    "by_keyword": "按关键字过滤",
+    "keyword": "关键字",
+    "condition": "条件",
+    "show_all": "显示全部",
+    "hide_all": "隐藏全部",
+    "restore_default": "恢复默认",
+    "apply_and_close": "应用并关闭",
+    "summary_hiding_all": "过滤设置：隐藏全部内容（{logic}）",
+    "summary_showing": "过滤设置：显示 {types}（{logic}）"
+  },
+  "fuzzer": {
+    "options": "选项",
+    "follow_redirect": "跟随重定向",
+    "send": "发送",
+    "intruder": "攻击",
+    "update_content_length": "更新 Content-Length",
+    "sync_host": "同步 Host",
+    "edit_target": "编辑目标",
+    "sending": "发送中",
+    "done": "完成",
+    "send_error": "发送请求出错：{error}",
+    "pause": "暂停",
+    "continue": "继续",
+    "attack": "冲",
+    "close_results_confirm": "关闭 攻击 结果窗口？",
+    "confirm_close": "确认关闭",
+    "placeholder": "占位符",
+    "attack_script": "攻击脚本：",
+    "no_request_tabs": "没有请求标签页。点击 + 添加。",
+    "open_script_dir": "打开脚本目录",
+    "last_code_used": "上次使用的代码",
+    "last_attack_script": "上次使用的脚本",
+    "empty_scripts": "（空）",
+    "no_scripts": "（没有脚本）",
+    "results_title": "攻击 - {host}",
+    "unknown_host": "未知主机",
+    "mcp_attack_tab": "MCP 攻击",
+    "status_line": "请求: {reqs} | 队列: {queued} | 耗时: {duration}s | 请求/秒: {rps} | 连接: {connections} | 重试: {retries} | 失败: {fails} | 下一个: {next}",
+    "status_cancelled": "已取消",
+    "status_completed": "已完成",
+    "status_warming_up": "引擎预热中...",
+    "status_paused": "已暂停",
+    "status_python_error": "用户 Python 脚本出错，请在扩展面板查看完整详情：{message}"
+  },
+  "wsrepeater": {
+    "target": "目标：",
+    "opcode": "类型：",
+    "send": "发送",
+    "reconnect": "重连",
+    "disconnect": "断开",
+    "handshake_request": "握手请求（可编辑；连接时 Sec-WebSocket-Key 会重新生成）",
+    "handshake_response": "握手响应",
+    "inbound_detail": "帧详情",
+    "tab": {
+      "payload": "载荷",
+      "handshake": "握手"
+    },
+    "status": {
+      "connected": "已连接",
+      "disconnected": "未连接"
+    },
+    "error": {
+      "title": "WebSocket 重放器",
+      "invalid_hex": "二进制载荷必须是有效的十六进制。",
+      "no_session": "该帧没有 WebSocket 会话上下文，无法重放。",
+      "live_dead": "原连接已断开，请点击重连以建立新连接。"
+    },
+    "column": {
+      "index": "#",
+      "direction": "方向",
+      "opcode": "类型",
+      "length": "长度",
+      "preview": "预览"
+    }
+  },
+  "settings": {
+    "about": {
+      "title": "关于",
+      "intro": "XProxy 是一个完全开源的 Web 安全测试工具箱，致力于为开源和安全社区做贡献！",
+      "maintained_by": "设计者",
+      "contributors": "贡献者"
+    },
+    "tls": {
+      "title": "TLS 证书",
+      "description": "导出 MITM CA 证书，然后在操作系统/浏览器中安装并信任它",
+      "export_ca": "导出 CA 证书",
+      "default_export": "默认导出：~/.xproxy/xproxy_ca.crt",
+      "status_not_exported": "状态：未导出",
+      "detail_not_exported": "未找到 CA 证书文件。点击“导出 CA 证书”生成/导出。",
+      "status_trusted": "状态：已信任",
+      "detail_trusted": "证书存在，并已被 macOS 系统信任存储信任。",
+      "status_exported_not_trusted": "状态：已导出，未信任",
+      "detail_exported_not_trusted": "证书存在但尚未信任。请导入并在钥匙串访问中信任它。",
+      "exported_to": "证书已导出到：\n{path}",
+      "export_success": "导出成功"
+    },
+    "appearance": {
+      "title": "外观",
+      "theme": "主题",
+      "apply_failed": "应用主题失败：{theme}",
+      "apply_failed_title": "主题应用失败",
+      "help": "选择 FlatLaf 主题；更改会立即应用"
+    },
+    "language": {
+      "title": "语言",
+      "current": "语言",
+      "reload_translations": "重新加载翻译",
+      "directory": "翻译文件：{path}",
+      "reloaded": "翻译已重新加载",
+      "reload_failed": "重新加载翻译失败：{error}"
+    },
+    "encoding": {
+      "title": "编码",
+      "display_charset": "显示字符集",
+      "forward_charset": "转发字符集",
+      "help": "自动：按 headers/meta/BOM 检测，然后使用 UTF-8/GB18030 回退"
+    },
+    "upstream": {
+      "title": "上游代理",
+      "enable": "启用上游代理",
+      "username": "用户名",
+      "password": "密码",
+      "help": "启用后，代理和重放器流量会经过此上游代理（HTTP/SOCKS5，可选 Basic 认证）"
+    },
+    "response_pretty": {
+      "title": "HTTP 格式化",
+      "display_limits": "显示上限",
+      "display_limits_hint": "一个 KB 值，同时应用到原始 Body 预览、大响应预览、HTML 渲染上限",
+      "processing_limits": "处理上限",
+      "processing_limits_hint": "一个 KB 值，同时应用到自动格式化、自动高亮、Body 高亮上限",
+      "smooth_limits": "平滑浏览 Body 上限",
+      "smooth_limits_hint": "一个 KB 值控制 Raw 进入平滑浏览的 Body 上限；单行/行数保护自动保留",
+      "mime_whitelist": "MIME 白名单",
+      "help": "所有数字上限单位均为 KB。不在白名单 => 不自动格式化（优先级高于大小）。",
+      "default_help": "默认：json/html/xml 相关 MIME 类型"
+    },
+    "mcp": {
+      "title": "MCP 服务",
+      "enable": "启用 MCP 服务（供 AI agent 调用）",
+      "bind_host": "监听地址",
+      "token": "鉴权 Token",
+      "regenerate": "token轮转",
+      "regenerate_confirm": "确定重新生成鉴权 Token？当前 Token 将立即失效，已连接的 agent 需更新为新 Token。",
+      "copy": "复制",
+      "config_copied": "配置命令已复制到剪切板。",
+      "state_running": "运行中",
+      "state_stopped": "已停止",
+      "tools": "工具数",
+      "help": "随 xproxy 启动。AI agent 通过 Streamable HTTP 连接此端点，请求头需携带 Authorization: Bearer <token>。默认仅监听本机回环；鉴权强制开启、不可关闭。监听地址（host:port）改动后切换启用开关生效。"
+    }
+  }
+}
