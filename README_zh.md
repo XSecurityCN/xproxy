@@ -10,7 +10,37 @@ XProxy 是一个面向安全测试与流量分析的桌面工具，集成了 HTT
 - **HTTP History**：查看历史请求/响应，支持按 MIME 与关键字过滤。
 - **Target**：对历史流量做站点树聚合与去重，便于快速定位接口。
 - **Fuzzer**：单次发送、重放、自动跟随重定向、批量攻击。
+- **Codec**：数据编解码工具箱，内置 20+ 种操作：
+  - **数据格式**：Base64（标准/URL安全）、URL编码/解码、十六进制编码/解码、HTML编码/解码
+  - **哈希算法**：MD5、SHA1、SHA256、SHA512、HMAC
+  - **加密**：AES加密/解密（ECB/CBC模式）
+  - **字符串**：ROT13、反转、大小写转换、去空格
+  - **签名**：JWT payload 解码
+- **Kits**：可扩展的插件与脚本生态系统：
+  - **Xapp 插件**：基于 Python 的插件系统，支持生命周期管理（on_proxy_http_message、on_before_request、on_after_request）、被动扫描、请求/响应重写、上下文菜单集成。
+  - **Xapp 商店**：浏览并安装来自 xapp-store 仓库的社区插件。
+  - **Intruder 脚本**：管理和执行 Python 攻击脚本，支持分类、内置模板、持久化状态。
 - **Settings**：主题、编码策略、TLS 证书导出与信任状态、响应渲染阈值配置。
+
+## 截图
+
+![主界面](images/01-project.png)
+
+![Target](images/02-target.png)
+
+![Proxy](images/03-proxy_1.png)
+
+![Proxy](images/03-proxy_2.png)
+
+![Fuzzer](images/04-fuzzer_1.png)
+
+![Fuzzer](images/04-fuzzer_2.png)
+
+![Codec](images/05-codec.png)
+
+![Kits](images/06-kits.png)
+
+![Settings](images/07-settings.png)
 
 ## 环境要求
 

@@ -10,7 +10,37 @@ XProxy is a desktop tool for security testing and traffic analysis, integrating 
 - **HTTP History**: Browse historical requests/responses, filter by MIME type and keywords.
 - **Target**: Aggregates and deduplicates historical traffic into a site tree for quick endpoint discovery.
 - **Fuzzer**: Single-shot sending, replay, automatic redirect following, and batch attacks.
+- **Codec**: Data encoding/decoding toolkit with 20+ built-in operations:
+  - **Data format**: Base64 (standard & URL-safe), URL encode/decode, Hex encode/decode, HTML encode/decode
+  - **Hashing**: MD5, SHA1, SHA256, SHA512, HMAC
+  - **Encryption**: AES encrypt/decrypt (ECB/CBC modes)
+  - **String**: ROT13, reverse, uppercase, lowercase, strip
+  - **Signature**: JWT payload decode
+- **Kits**: Extensible plugin and scripting ecosystem:
+  - **Xapp Plugins**: Python-based plugins with lifecycle management (on_proxy_http_message, on_before_request, on_after_request), passive scanning, request/response rewriting, and context menu integration.
+  - **Xapp Store**: Browse and install community plugins from the xapp-store repository.
+  - **Intruder Scripts**: Manage and execute Python attack scripts with category support, built-in templates, and persistent state.
 - **Settings**: Themes, encoding policies, TLS certificate export and trust status, response rendering thresholds.
+
+## Screenshots
+
+![Main window](images/01-project.png)
+
+![Target](images/02-target.png)
+
+![Proxy](images/03-proxy_1.png)
+
+![Proxy](images/03-proxy_2.png)
+
+![Fuzzer](images/04-fuzzer_1.png)
+
+![Fuzzer](images/04-fuzzer_2.png)
+
+![Codec](images/05-codec.png)
+
+![Kits](images/06-kits.png)
+
+![Settings](images/07-settings.png)
 
 ## Requirements
 
